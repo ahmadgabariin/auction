@@ -4,6 +4,7 @@ import Sidebar from '../Sidebar/Sidebar'
 import './MainPage.css'
 function MainPage() {
   return (
+<<<<<<< HEAD
     <div className='container-main-page'>
       <Searchbar/>
       <div className='main-page'>
@@ -14,6 +15,10 @@ function MainPage() {
           <Sidebar/>
         </div>
       </div>
+=======
+    <div className='main-page'>
+        <>main page</>
+>>>>>>> master
     </div>
     
   )
