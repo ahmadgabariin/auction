@@ -3,12 +3,16 @@ import Item from '../Item/Item'
 import data from '../../data.json'
 
 function ItemRoom() {
-  console.log(data)
+
+  function inputHandler(){
+
+  }
+
   return (
     <div>
         <Item item={data[0]}/>
         <p>{data[0].itemDescription}</p>
-        <input type="number" placeholder="Enter your biding" />
+        <input type="number" name="bidingInput" placeholder="Enter your biding" onChange={inputHandler}/>
         <button>Bid</button>
         <div>
            <span>khaledwani: </span>
