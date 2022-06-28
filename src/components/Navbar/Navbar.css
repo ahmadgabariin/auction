@@ -1,0 +1,9 @@
+.nav-bar {
+    display: flex;
+    column-gap: 4vw;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
