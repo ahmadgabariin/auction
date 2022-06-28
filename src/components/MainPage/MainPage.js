@@ -1,5 +1,4 @@
 import React from 'react'
-import ItemRoom from '../ItemRoom/ItemRoom'
 import Searchbar from '../Searchbar/Searchbar'
 import Sidebar from '../Sidebar/Sidebar'
 import './MainPage.css'
