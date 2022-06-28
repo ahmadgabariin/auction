@@ -12,4 +12,12 @@ function Item(props) {
   );
 }
 
+// <Item
+//         itemTitle="iphone 13"
+//         itemPrice={5}
+//         itemDescription="phone as new, without scratches"
+//         itemTimer="2:01:00"
+//         itemImg="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-01.jpg"
+//       />
+
 export default Item;
