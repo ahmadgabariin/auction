@@ -1,3 +1,16 @@
 .main-page {
     margin-top: 4vh;
+    display: grid;
+    grid-template-columns: 72vw 20vw;
+    column-gap: 2vw;
+}
+
+.inner-grid {
+    background-color: red;
+   
+}
+
+.side-bar-container {
+    background-color: black;
+    height: 70vh;
 }
