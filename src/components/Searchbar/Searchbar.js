@@ -10,7 +10,7 @@ function Searchbar() {
   return (
     <div className='search-bar'>
       <TextField id="standard-basic" label="Search" 
-         variant="standard" name='searchInput' onChange={search}/>
+         variant="standard" name='searchInput' onChange={search} size='small' />
     </div>
   )
 }

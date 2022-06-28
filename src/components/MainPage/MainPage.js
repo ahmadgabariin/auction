@@ -1,11 +1,12 @@
 import React from 'react'
+import ItemRoom from '../ItemRoom/ItemRoom'
 import Searchbar from '../Searchbar/Searchbar'
 import Sidebar from '../Sidebar/Sidebar'
 import './MainPage.css'
 function MainPage() {
   return (
     <div className='container-main-page'>
-      <Searchbar/>
+      <Searchbar/> 
       <div className='main-page'>
         <div className='inner-grid'>
           adw
@@ -13,7 +14,7 @@ function MainPage() {
         <div className='side-bar-container'>
           <Sidebar/>
         </div>
-      </div>
+      </div> 
     </div>
     
   )
