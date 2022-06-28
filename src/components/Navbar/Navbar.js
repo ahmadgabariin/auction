@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div className='nav-bar'>
       <Link to={`/`} >Home</Link>
-      <Link to={`/uploadItem`} >Upload Item</Link>
+      <Link to={`/additem`} >Add Item</Link>
     </div>
   )
 }

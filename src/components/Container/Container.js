@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import MainPage from '../MainPage/MainPage'
 import Navbar from './../Navbar/Navbar'
 import './Container.css'
+import AddItem from './../AddItem/AddItem';
 function Container() {
   return (
     <div className='Container'>
@@ -10,6 +11,7 @@ function Container() {
             <Navbar/>
             <Routes>
               <Route path='/' element = {<MainPage/>} />
+              <Route path='/additem' element = {<AddItem/>} />
             </Routes>
         </BrowserRouter>
     </div>
