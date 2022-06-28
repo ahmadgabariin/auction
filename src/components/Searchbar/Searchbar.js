@@ -11,8 +11,7 @@ function Searchbar() {
   return (
     <div className='search-bar'>
       <TextField id="standard-basic" label="Search" 
-         variant="standard" name='searchInput' onChange={search}/>
-      <Button variant="contained">Hello World</Button>
+         variant="standard" name='searchInput' onChange={search} size='small' />
     </div>
   )
 }
