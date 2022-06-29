@@ -9,9 +9,10 @@
   phoneNumber: String
   birthDay: Date
   balance: Number
-  uploadedItems:[itemscheme]
-  purchasedItems:[historyScheme]
+  uploadedItems:[itemscheme]   
+  historyItem:[itemscheme]    
 }
+
 
 //item scheme
 {
@@ -23,21 +24,9 @@
   dateOfApprove:Date
   isApproved:Boolean
   description:String
-  
+  IsSold : Boolean 
 }
 
-//purchased History scheme
-{
-  item:[itemscheme]
-  purchaseDate:Date
-  paid:Number
-   
-}
-
-{
-  item:[itemscheme]
-  dateOfUpload:Date 
-}
 
 
 
