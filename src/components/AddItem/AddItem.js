@@ -10,6 +10,7 @@ function AddItem() {
                 <span>Title: </span>
                 <input type="text" name="itemTitle" />
             </div>
+            <span></span>
             <select id="select-input" name="category" onChange={handleChanges}>
                 <option value="sold">Sold</option>
                 <option value="name">Name</option>
