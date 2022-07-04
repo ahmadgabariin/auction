@@ -1,12 +1,16 @@
 import React from "react";
 import catagories from "../../categories.json";
 function AddItem() {
-  const handleChanges = (e) => {};
+
+  const handleChanges = (e) => {
+
+  };
+  
   return (
     <div>
       <div>
         <span>Title: </span>
-        <input type="text" name="itemTitle" />
+        <input type="text" name="itemTitle" onChange={handleChanges}/>
       </div>
       <select id="select-input" name="category" onChange={handleChanges}>
         {catagories.map((c) => (
@@ -17,7 +21,7 @@ function AddItem() {
       </select>
       <div>
         <span>Description: </span>
-        <input type="text" name="description" />
+        <input type="text" name="description" onChange={handleChanges}/>
       </div>
       <div>
         <span>Upload Image: </span>
