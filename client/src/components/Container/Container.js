@@ -11,13 +11,8 @@ function Container() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-<<<<<<< HEAD:src/components/Container/Container.js
           <Route path="/" element={<LogIn />} />
           <Route path="/mainPage" element={<MainPage />} />
-=======
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/" element={<MainPage />} />
->>>>>>> master:client/src/components/Container/Container.js
           <Route path="/additem" element={<AddItem />} />
         </Routes>
       </BrowserRouter>
