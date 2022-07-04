@@ -3,6 +3,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import catagories from "../../categories.json";
 import "./MainPage.css";
 import axios from "axios";
+import ItemsRooms from "../ItemsRooms/ItemsRooms";
 function MainPage() {
   // this function sends a req to the server to authenticate the user
   // every req from now on there should be a header x-access-token with the localStorage token item
@@ -22,7 +23,9 @@ function MainPage() {
     <div className="container-main-page">
       <Searchbar />
       <div className="main-page">
-        <div className="inner-grid">adw</div>
+        <div className="inner-grid">
+         <ItemsRooms/>
+        </div>
         <div className="side-bar-container">
           <Sidebar catagories={catagories} />
         </div>
