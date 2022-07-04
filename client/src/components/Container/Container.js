@@ -11,9 +11,8 @@ function Container() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<LogIn />} />
-          <Route path="/mainPage" element={<MainPage />} />
-
+          {/* <Route path="/" element={<LogIn />} /> */}
+          <Route path="/" element={<MainPage />} />
           <Route path="/additem" element={<AddItem />} />
         </Routes>
       </BrowserRouter>

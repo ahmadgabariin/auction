@@ -1,6 +1,7 @@
 import React from 'react'
 import data from '../../data.json'
 import Item from './../Item/Item';
+
 function ItemsRooms() {
   return (
     <div>{
