@@ -1,16 +1,16 @@
 import axios from "axios";
 import React, {useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import './LogIn.css'
 
 function LogIn(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [logInStatus, setLogInStatus] = useState(null);
+  const navigate = useNavigate();
 
   const LogInHandler = () => {
-    axios
-      .post(`http://localhost:3001/login`, {
+    axios.post(`http://localhost:3001/login`, {
         username: username,
         password: password,
       })
@@ -21,25 +21,27 @@ function LogIn(props) {
         }
       });
   };
+
   return (
     <div className="login-container" >
       <div >
         <div className="nested-login-container">
-          <h1>LogIn</h1>
+          <div className="login-title">Login</div>
           <input
-            placeholder="username"
+            placeholder="Username"
             className="input-login"
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
             className="input-login"
-            placeholder="password"
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+            type={`password`}
           />
           <div>
-          <button onClick={LogInHandler} className = {`btn-login`}>LogIn</button>
+          <button onClick={LogInHandler} className = {`btn-login`}>Login</button>
           <div className="sign-in-txt-container">
-            <span className="sing-in-txt">Sign In</span>
+            <span className="sing-in-txt" onClick={()=> navigate(`/signup`)}>Sign In</span>
           </div>
           </div>
          
