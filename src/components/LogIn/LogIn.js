@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import './LogIn.css'
 
 function LogIn(props) {
   const [username, setUsername] = useState("");
@@ -21,21 +22,31 @@ function LogIn(props) {
       });
   };
   return (
-    <div>
-      <h1>LogIn</h1>
-      <div>
-        <input
-          placeholder="username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={LogInHandler}>LogIn</button>
-      </div>
-      <div>
-        {logInStatus ? <Navigate to="/mainPage" replace={true} /> : null}
+    <div className="login-container" >
+      <div >
+        <div className="nested-login-container">
+          <h1>LogIn</h1>
+          <input
+            placeholder="username"
+            className="input-login"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            className="input-login"
+            placeholder="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div>
+          <button onClick={LogInHandler} className = {`btn-login`}>LogIn</button>
+          <div className="sign-in-txt-container">
+            <span className="sing-in-txt">Sign In</span>
+          </div>
+          </div>
+         
+        </div>
+        <div>
+          {logInStatus ? <Navigate to="/mainPage" replace={true} /> : null}
+        </div>
       </div>
     </div>
   );
