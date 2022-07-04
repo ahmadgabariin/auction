@@ -1,10 +1,13 @@
 import React from "react";
 import data from "../../data.json";
 import "./ItemRoom.css";
+import {io} from 'socket.io-client'
 import Button from "@mui/material/Button";
 import AlarmIcon from "@mui/icons-material/Alarm";
 import TextField from "@mui/material/TextField";
+
 function ItemRoom() {
+  const socket = io.connect('http://localhost:3001')
   function inputHandler() {}
 
   return (
@@ -47,5 +50,6 @@ function ItemRoom() {
     </div>
   );
 }
+
 
 export default ItemRoom;

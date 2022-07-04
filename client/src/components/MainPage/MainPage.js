@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Searchbar from "../Searchbar/Searchbar";
 import Sidebar from "../Sidebar/Sidebar";
 import catagories from "../../categories.json";
