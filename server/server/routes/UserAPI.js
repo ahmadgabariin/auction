@@ -1,6 +1,5 @@
 const express = require(`express`);
 const router = express.Router();
-const User = require(`../models/User`);
 const jwt = require(`jsonwebtoken`);
 
 router.get(`/user`, function (request, response) {
@@ -26,7 +25,6 @@ const verifyJWT = (req, res, next) => {
       if (err) {
         res.send({ auth: false, msg: "authorization failed" });
       } else {
-        res.send({ auth: true, msg: "authorization approved" });
         next();
       }
     });
@@ -36,7 +34,7 @@ const verifyJWT = (req, res, next) => {
 };
 
 router.get(`/isAuth`, verifyJWT, function (request, response) {
-  response.send("u good man");
+  response.send({ auth: true, msg: "authorization approved" });
 });
 
 router.post(`/login`, function (request, response) {
@@ -49,6 +47,7 @@ router.post(`/login`, function (request, response) {
     });
 
     response.send({ auth: true, token: token });
+    
   } else {
     response.send("username/password are wrong");
   }

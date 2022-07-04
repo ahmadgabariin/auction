@@ -1,6 +1,6 @@
 const express = require(`express`)
 const app = express()
-const port = 3001
+const port = 4000
 const api = require("./server/routes/api")
 const itemApi = require(`./server/routes/itemAPI`)
 const UserAPI = require(`./server/routes/UserAPI`)
