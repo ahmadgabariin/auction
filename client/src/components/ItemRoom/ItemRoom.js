@@ -1,5 +1,4 @@
 import React from "react";
-import data from "../../data.json";
 import "./ItemRoom.css";
 import Button from "@mui/material/Button";
 import AlarmIcon from "@mui/icons-material/Alarm";

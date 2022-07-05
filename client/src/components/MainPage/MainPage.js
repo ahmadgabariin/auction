@@ -4,6 +4,7 @@ import catagories from "../../categories.json";
 import "./MainPage.css";
 import axios from "axios";
 import ItemsRooms from "../ItemsRooms/ItemsRooms";
+
 function MainPage() {
   // this function sends a req to the server to authenticate the user
   // every req from now on there should be a header x-access-token with the localStorage token item
