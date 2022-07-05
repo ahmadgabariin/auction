@@ -1,21 +1,25 @@
 import axios from "axios";
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import './LogIn.css'
+import "./LogIn.css";
+import { useCookies } from "react-cookie";
 
 function LogIn(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [cookies, setCookie] = useCookies(["user"]);
   const [logInStatus, setLogInStatus] = useState(null);
   const navigate = useNavigate();
 
   const LogInHandler = () => {
-    axios.post(`http://localhost:3001/login`, {
+    axios
+      .post(`http://localhost:3001/login`, {
         username: username,
         password: password,
       })
       .then((response) => {
         if (response.data.auth) {
+          setCookie("tokenCookie", response.data.token, { path: "/" });
           localStorage.setItem("token", response.data.token);
           setLogInStatus(true);
         }
@@ -23,8 +27,8 @@ function LogIn(props) {
   };
 
   return (
-    <div className="login-container" >
-      <div >
+    <div className="login-container">
+      <div>
         <div className="nested-login-container">
           <div className="login-title">Login</div>
           <input
@@ -40,12 +44,15 @@ function LogIn(props) {
             type={`password`}
           />
           <div>
-          <button onClick={LogInHandler} className = {`btn-login`}>Login</button>
-          <div className="sign-in-txt-container">
-            <span className="sing-in-txt" onClick={()=> navigate(`/signup`)}>Sign In</span>
+            <button onClick={LogInHandler} className={`btn-login`}>
+              Login
+            </button>
+            <div className="sign-in-txt-container">
+              <span className="sing-in-txt" onClick={() => navigate(`/signup`)}>
+                Sign In
+              </span>
+            </div>
           </div>
-          </div>
-         
         </div>
         <div>
           {logInStatus ? <Navigate to="/mainPage" replace={true} /> : null}
