@@ -1,3 +1,6 @@
+body {
+    background-color:#F5F2EA ;
+}
 .main-page {
     margin-top: 4vh;
     display: grid;
@@ -7,10 +10,12 @@
 
 .inner-grid {
     background-color: red;
-   
+    padding-left: 2vw;
+    padding-top: 2vh;
 }
 
 .side-bar-container {
     background-color: black;
     height: 70vh;
 }
+

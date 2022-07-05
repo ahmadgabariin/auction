@@ -3,10 +3,10 @@ import "./Sidebar.css";
 function Sidebar(props) {
   return (
     <div className="side-bar">
-      {props.catagories.map((c) => (
-        <option key={c} value={c}>
-          {c}
-        </option>
+      {props.catagories.map((category , index) => (
+        <div key={index} className = {`category`} >
+          {category}
+        </div>
       ))}
     </div>
   );
