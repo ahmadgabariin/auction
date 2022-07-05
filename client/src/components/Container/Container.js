@@ -5,6 +5,7 @@ import Navbar from "./../Navbar/Navbar";
 import "./Container.css";
 import AddItem from "./../AddItem/AddItem";
 import LogIn from "../LogIn/LogIn";
+import ItemRoom from "../ItemRoom/ItemRoom";
 import SignUp from "../Sign-up/SignUp";
 function Container() {
   return (
@@ -16,6 +17,7 @@ function Container() {
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/mainPage" element={<MainPage />} />
           <Route path="/additem" element={<AddItem />} />
+          <Route path="/biding-room" element={<ItemRoom />} />
         </Routes>
       </BrowserRouter>
     </div>

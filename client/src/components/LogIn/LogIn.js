@@ -28,8 +28,9 @@ function LogIn(props) {
         <div className="nested-login-container">
           <div className="login-title">Login</div>
           <input
-            placeholder="Username"
+            placeholder="Email"
             className="input-login"
+            type="email"
             onChange={(e) => setUsername(e.target.value)}
           />
           <input

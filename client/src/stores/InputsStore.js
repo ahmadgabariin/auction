@@ -4,6 +4,9 @@ export class InputsStore {
     constructor() {
         this.bidingInput = '';
         this.searchInput ='',
+        this.itemTitle = '',
+        this.category='',
+
 
         makeAutoObservable(this, {
             searchInput:observable,

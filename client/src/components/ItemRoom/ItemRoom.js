@@ -1,27 +1,25 @@
 import React from "react";
-import data from "../../data.json";
 import "./ItemRoom.css";
-import {io} from 'socket.io-client'
 import Button from "@mui/material/Button";
 import AlarmIcon from "@mui/icons-material/Alarm";
 import TextField from "@mui/material/TextField";
+import { useLocation } from 'react-router-dom';
 
 function ItemRoom() {
-  const socket = io.connect('http://localhost:3001')
   function inputHandler() {}
-
+  const item = useLocation().state.item
   return (
     <div className="room">
       <div className="item-details">
-        <div className="item-title">{data[0].itemTitle}</div>
-        <div>Time Left : {data[0].itemTimer}</div>
-        <img src={data[0].itemImg} alt="" />
-        <p>{data[0].itemDescription}</p>
-        <div>Current bid : {data[0].itemPrice}</div>
+        <div className="item-title">{item.itemTitle}</div>
+        <div>Time Left :0:00</div>
+        <img src={item.itemImg} alt="" />
+        <p>{item.itemDescription}</p>
+        <div>Current bid : {item.itemPrice}</div>
         <div className="btn-input-bid-container">
           <TextField
             id="outlined-basic"
-            label="Bid"
+            label="Biding..."
             variant="outlined"
             size="small"
             type="number"
@@ -35,7 +33,7 @@ function ItemRoom() {
             className="btn-bid"
             size="small"
           >
-            <AlarmIcon />
+           <AlarmIcon />
             Bid
           </Button>
         </div>

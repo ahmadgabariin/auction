@@ -1,7 +1,7 @@
 const express = require(`express`);
 const router = express.Router();
-const User = require(`../models/User`);
 const jwt = require(`jsonwebtoken`);
+require("dotenv").config()
 const bcrypt = require(`bcrypt`)
 
 router.get(`/user`, function (request, response) {
@@ -39,7 +39,7 @@ const verifyJWT = (req, res, next) => {
   const token = req.headers["x-access-token"];
 
   if (token) {
-    jwt.verify(token, "secret123", (err, decoded) => {
+    jwt.verify(token,process.env.SECRET_KEY , (err, decoded) => {
       if (err) {
         res.send({ auth: false, msg: "authorization failed" });
       } else {
@@ -51,8 +51,20 @@ const verifyJWT = (req, res, next) => {
   }
 };
 
+router.delete(`/user`, function (request, response) {
+  response.send(`delete user`);
+});
+
+router.put(`/user`, function (request, response) {
+  response.send(`update user`);
+});
+
+router.post(`/user`, function (request, response) {
+  response.send(`post user`);
+});
+
 router.get(`/isAuth`, verifyJWT, function (request, response) {
-  response.send("u good man");
+  response.send({ auth: true, msg: "authorization approved" });
 });
 
 router.post(`/login`, async function (request, response) {
@@ -73,7 +85,6 @@ router.post(`/login`, async function (request, response) {
         })
         response.send({ user ,auth: true, token: token })
 
-        
         
       } else {
         response.status(404).send(`Wrong Password`) 

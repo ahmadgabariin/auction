@@ -8,12 +8,6 @@ body {
     column-gap: 2vw;
 }
 
-.inner-grid {
-    background-color: red;
-    padding-left: 2vw;
-    padding-top: 2vh;
-}
-
 .side-bar-container {
     background-color: black;
     height: 70vh;

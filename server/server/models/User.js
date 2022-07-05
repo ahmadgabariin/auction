@@ -9,7 +9,6 @@ const userSchema = new Schema ({
     email : String,
     phoneNumber : String,
     birthDay : Date,
-    balance : Number, 
     Items : [{type : Schema.Types.ObjectId , ref: `Item`}],
     historyItem : [{type : Schema.Types.ObjectId , ref: `Item`}]
   })
