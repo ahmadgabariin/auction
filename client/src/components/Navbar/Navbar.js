@@ -5,11 +5,11 @@ import Avatar from '@mui/material/Avatar'
 import Stack from '@mui/material/Stack'
 import { deepOrange, deepPurple  } from '@mui/material/colors';
 import Menu from '@mui/material/Menu';
+import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import AccountMenu from '../AccountMenu/AccountMenu'
 
-const profilePicture = () => {
-  console.log(`Clicked`)
-}
+
 
 function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,7 +17,8 @@ function Navbar() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (e) => {
+    console.log(e.target.value)
     setAnchorEl(null);
   };
 
@@ -25,27 +26,9 @@ function Navbar() {
     <div className='nav-bar'>
       <Link to={`/`} >Home</Link>
       <Link to={`/additem`} >Add Item</Link>
-      <div className='profile-pic-container' onClick={profilePicture}>
-        <Stack direction="row" spacing={2} className = {`profile-pic`}>
-          <Avatar sx={{ bgcolor: deepOrange[600] }}>AG</Avatar>
-        </Stack>
+      <div className='profile-pic-container'>
+        <AccountMenu/> 
       </div>
-
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>
-
-
     </div>
   )
 }
