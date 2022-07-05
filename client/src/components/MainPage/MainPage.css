@@ -4,12 +4,26 @@ body {
 .main-page {
     margin-top: 4vh;
     display: grid;
-    grid-template-columns: 72vw 20vw;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     column-gap: 2vw;
 }
-
+/* .inner-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+} */
+#inner-grid{
+    grid-area: i;
+}
+#side-bar-container{
+    grid-area: s;
+}
 .side-bar-container {
-    background-color: black;
+    display: grid;
+    grid-template-rows: 55px calc(100vh - 55px);
+    grid-template-columns: 220px auto;
+    background-color: #30383f;
     height: 70vh;
+    
 }
 

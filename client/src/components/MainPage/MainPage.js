@@ -25,13 +25,12 @@ function MainPage() {
     <div className="container-main-page">
       <Searchbar />
       <div className="main-page">
-        <div className="inner-grid">
-          <ItemsRooms />
-        </div>
         <div className="side-bar-container">
           <Sidebar catagories={catagories} />
         </div>
-        <div>{cookies.tokenCookie}</div>
+        <div className="inner-grid">
+         <ItemsRooms/>
+        </div>
       </div>
     </div>
   );
