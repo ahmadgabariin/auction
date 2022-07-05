@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import './SignUp.css'
 import axios from "axios";
+import validator from "validator";
 
 
 function SignUp() {
   const [values , setValues] = useState({firstName : `` , lastName : `` , email : `` , password : ``})
   const updateInputs = (e) =>setValues({...values ,[e.target.name] : e.target.value})
-  const [port , setPort] = useState(4000)
-  let validator = require('validator');
+  const port = 4000
   
   const  signUp = async () => {
     if (validator.isEmail(values[`email`].trim())) {
