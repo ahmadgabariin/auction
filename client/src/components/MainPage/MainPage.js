@@ -3,7 +3,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import catagories from "../../categories.json";
 import "./MainPage.css";
 import axios from "axios";
-import { Login } from "@mui/icons-material";
+
 function MainPage() {
   // this function sends a req to the server to authenticate the user
   // every req from now on there should be a header x-access-token with the localStorage token item
@@ -21,7 +21,7 @@ function MainPage() {
 
   return (
     <div className="container-main-page">
-      <Login/>
+      
       <Searchbar />
       <div className="main-page">
         <div className="inner-grid">adw</div>
