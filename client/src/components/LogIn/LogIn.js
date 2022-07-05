@@ -10,7 +10,7 @@ function LogIn(props) {
   const navigate = useNavigate();
 
   const LogInHandler = () => {
-    axios.post(`http://localhost:3001/login`, {
+    axios.post(`http://localhost:4000/login`, {
         username: username,
         password: password,
       })
@@ -19,8 +19,8 @@ function LogIn(props) {
           localStorage.setItem("token", response.data.token);
           setLogInStatus(true);
         }
-      });
-  };
+      })
+  }
 
   return (
     <div className="login-container" >

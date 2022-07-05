@@ -3,18 +3,19 @@ const router = express.Router();
 const jwt = require(`jsonwebtoken`);
 require("dotenv").config()
 const bcrypt = require(`bcrypt`)
+const User = require(`../models/User`)
 
 router.get(`/user`, function (request, response) {
   response.send(`get user`);
-});
+})
 
 router.delete(`/user`, function (request, response) {
   response.send(`delete user`);
-});
+})
  
 router.put(`/user`, function (request, response) {
   response.send(`update user`);
-});
+})
 
 router.post(`/user`, async function (request, response) {
   try {
@@ -33,7 +34,7 @@ router.post(`/user`, async function (request, response) {
     response.status(500).send(`error`)
   }
   
-});
+})
 
 const verifyJWT = (req, res, next) => {
   const token = req.headers["x-access-token"];
@@ -49,7 +50,7 @@ const verifyJWT = (req, res, next) => {
   } else {
     res.send({ auth: false, msg: "missing token" });
   }
-};
+}
 
 router.delete(`/user`, function (request, response) {
   response.send(`delete user`);
@@ -57,15 +58,15 @@ router.delete(`/user`, function (request, response) {
 
 router.put(`/user`, function (request, response) {
   response.send(`update user`);
-});
+})
 
 router.post(`/user`, function (request, response) {
   response.send(`post user`);
-});
+})
 
 router.get(`/isAuth`, verifyJWT, function (request, response) {
   response.send({ auth: true, msg: "authorization approved" });
-});
+})
 
 router.post(`/login`, async function (request, response) {
   const username = request.body.username;
@@ -74,9 +75,14 @@ router.post(`/login`, async function (request, response) {
     email :username
   } , async function (error , user) {
     try {
-      error ? response.status(500).send(error) : 
-      user === null ? response.status(404).send(`User not found`) 
-      : null
+      if (error) { 
+        response.status(500).send(error) 
+        return
+      }
+      else if ( ! user) { 
+        response.status(404).send(`User not found`) 
+        return
+      }  
       
       if ( await bcrypt.compare(password , user.password) ) {
 
@@ -84,18 +90,20 @@ router.post(`/login`, async function (request, response) {
           expiresIn: 1000,
         })
         response.send({ user ,auth: true, token: token })
-
+        return
         
       } else {
         response.status(404).send(`Wrong Password`) 
+        return
       }
     } catch   {
       response.status(500).send(`Error`)
+      return
     }
   })
 
   
-});
+})
 
 
 
