@@ -13,7 +13,7 @@ function LogIn(props) {
 
   const LogInHandler = () => {
     axios
-      .post(`http://localhost:3001/login`, {
+      .post(`http://localhost:4000/login`, {
         username: username,
         password: password,
       })
