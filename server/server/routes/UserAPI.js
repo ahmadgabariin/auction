@@ -1,9 +1,7 @@
 const express = require(`express`);
 const router = express.Router();
 const jwt = require(`jsonwebtoken`);
-<<<<<<< HEAD
 require("dotenv").config()
-=======
 const bcrypt = require(`bcrypt`)
 
 router.get(`/user`, function (request, response) {
@@ -36,7 +34,6 @@ router.post(`/user`, async function (request, response) {
   }
   
 });
->>>>>>> master
 
 const verifyJWT = (req, res, next) => {
   const token = req.headers["x-access-token"];
@@ -70,12 +67,7 @@ router.get(`/isAuth`, verifyJWT, function (request, response) {
   response.send({ auth: true, msg: "authorization approved" });
 });
 
-<<<<<<< HEAD
-
-router.post(`/user`, function (request, response) {
-=======
 router.post(`/login`, async function (request, response) {
->>>>>>> master
   const username = request.body.username;
   const password = request.body.password;
   User.findOne ({
