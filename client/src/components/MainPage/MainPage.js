@@ -10,6 +10,7 @@ function MainPage() {
   // every req from now on there should be a header x-access-token with the localStorage token item
   // nad in the backend u should add middleware called verifyJWT just like in UserAPI isAuth route
 
+  const [cookies, setCookie] = useCookies([]);
   const userAuthenticated = () => {
     axios
       .get("http://localhost:3001/isAuth", {
@@ -30,6 +31,7 @@ function MainPage() {
         <div className="side-bar-container">
           <Sidebar catagories={catagories} />
         </div>
+        <div>{cookies.tokenCookie}</div>
       </div>
     </div>
   );

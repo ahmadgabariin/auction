@@ -7,7 +7,7 @@ import { useCookies } from "react-cookie";
 function LogIn(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [cookies, setCookie] = useCookies(["user"]);
+  const [cookies, setCookie] = useCookies([]);
   const [logInStatus, setLogInStatus] = useState(null);
   const navigate = useNavigate();
 
@@ -20,7 +20,6 @@ function LogIn(props) {
       .then((response) => {
         if (response.data.auth) {
           setCookie("tokenCookie", response.data.token, { path: "/" });
-          localStorage.setItem("token", response.data.token);
           setLogInStatus(true);
         }
       });
