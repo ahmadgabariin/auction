@@ -1,6 +1,7 @@
 .item {
-    display: grid;
+    display: inline-block;
     row-gap: 2vh;
+    color:black;
 }
 .btn-bid {
 width: 25%;
@@ -14,5 +15,11 @@ width: 25%;
     display: flex;
     justify-content: center;
     font-size: x-large;
+    color: black;
     margin-top: 2vh;
+}
+img{
+    width: 400px;
+    height: 400px;
+
 }
