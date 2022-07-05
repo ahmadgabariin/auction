@@ -4,7 +4,7 @@ import Item from './../Item/Item';
 
 function ItemsRooms() {
   return (
-    <div>{
+    <div className='Items'>{
          data.map((item,index)=><Item key={index} item={item}/>)
         }</div>
   )

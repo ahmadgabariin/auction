@@ -25,11 +25,12 @@ function MainPage() {
     <div className="container-main-page">
       <Searchbar />
       <div className="main-page">
-        <div className="side-bar-container">
-          <Sidebar catagories={catagories} />
-        </div>
+        
         <div className="inner-grid">
-         <ItemsRooms/>
+          <div className="side-bar-container">
+              <Sidebar catagories={catagories} />
+          </div>
+          <ItemsRooms/>    
         </div>
       </div>
     </div>
