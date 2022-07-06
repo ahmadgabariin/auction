@@ -23,7 +23,7 @@ router.post(`/user`, async function (request, response) {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(user.password, salt);
     user.password = hashedPassword;
-    const newUser = new User(user);
+    const newUser = new User(user); 
     newUser.save(function (error, user) {
       if (error) {
         response.status(500).send(error);
