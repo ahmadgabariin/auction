@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { Provider } from 'mobx-react'
-import {InputsStore as inputsStore} from './stores/InputsStore'
+
 import reportWebVitals from './reportWebVitals';
 
-const InputsStore = new inputsStore()
 const stores = {
-    InputsStore
+   
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

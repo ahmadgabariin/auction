@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const itemSchema = new Schema ({
     title : String,
     category : String,
-    image : String, //firebase link
+    imageURL : String, //firebase link
     price : Number,
     available : Boolean,
     dateOfApprove : Date,

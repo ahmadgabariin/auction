@@ -11,12 +11,12 @@ function Container() {
   return (
     <div className="Container">
       <BrowserRouter>
-        <Navbar/>
+        <Navbar />
         <Routes>
-          {/* <Route path="/" element={<LogIn/>} /> */}
-          <Route path="/" element={<MainPage />} />
-          <Route path="/signup" element={<SignUp/>} />
+          {/* <Route path="/" element={<LogIn />} /> */}
+          <Route path="/signup" element={<SignUp />} />
           {/* <Route path="/mainPage" element={<MainPage />} /> */}
+          <Route path="/" element={<MainPage />} />
           <Route path="/additem" element={<AddItem />} />
           <Route path="/biding-room" element={<ItemRoom />} />
         </Routes>
