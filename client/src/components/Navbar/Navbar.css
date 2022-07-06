@@ -1,7 +1,7 @@
 .nav-bar {
     display: flex;
     column-gap: 2vw;
-    background-color: #30343F;
+    background-color: #30383f;
     height: 7vh;
     font-size: x-large;
     align-items: center;
@@ -17,8 +17,20 @@ a {
     align-items: center;
     padding-left: 2vh;
     padding-right: 2vh;
+    width:10%;
+    justify-content: center;
 }
 
 a:hover {
     background-color: rgba(0, 0, 0, 0.2)
+}
+
+.profile-pic-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2%;
+}
+.profile-pic{
+  cursor: pointer;
 }
