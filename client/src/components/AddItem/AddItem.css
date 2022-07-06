@@ -14,7 +14,7 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
-.btn-add-item {
+.btn-add-item-div {
     display: flex;
     justify-content: center;
     
