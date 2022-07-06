@@ -8,9 +8,15 @@ const itemSchema = new Schema ({
     price : Number,
     available : Boolean,
     dateOfApprove : Date,
+    dateOfExpire : Date,
     isApproved : Boolean,
     description : String, 
   })
 
 const Item = mongoose.model(`Item` , itemSchema , `Items`)
 module.exports = Item
+
+
+
+//date of expire 11/11 13:05 --> 12/11  
+//

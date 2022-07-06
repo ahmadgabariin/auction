@@ -1,5 +1,6 @@
 import "./App.css";
 import Container from "./components/Container/Container";
+import socket from './socketManager/socketManager';
 
 function App() {
  

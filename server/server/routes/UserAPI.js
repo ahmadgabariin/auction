@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require(`jsonwebtoken`);
 require("dotenv").config()
 const bcrypt = require(`bcrypt`)
+const User = require("../models/User")
 
 router.get(`/user`, function (request, response) {
   response.send(`get user`);
@@ -94,9 +95,6 @@ router.post(`/login`, async function (request, response) {
     }
   })
 
-  
 });
-
-
 
 module.exports = router;

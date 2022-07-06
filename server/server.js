@@ -8,6 +8,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 const mongoose = require(`mongoose`)
+const moment = require("moment")
 mongoose.connect(`mongodb://localhost/Auction`, { useNewUrlParser: true });
 
 
@@ -38,13 +39,40 @@ const io = new Server(server, {
 });
 
 
+function myTimer(room) {
+  console.log(room);
+  
+}
 
-io.on("connection", socket =>{
-    console.log(socket.id);
+io.on("connection", (socket) =>{
+    
+    socket.on("join-room", room =>{
+      socket.join(room)
+    })
+    socket.on("disconnect", ()=>{
+       console.log("user disconnected" + socket.id);
+    })
 })
-
 
 server.listen(port , function () {
     console.log(`Server running on port ${port}`)
 })
+
+
+
+
+
+// let y = moment(new Date()).add(1, 'days').format("lll")
+// console.log(y);
+// let x = new Date()
+// let minute = 1000 * 60
+// let hour = minute * 60
+// let day = hour * 24
+// //let f = y.getTime() - x.getTime()
+// // let hours = Math.floor((f % day) / hour)
+// // let minutes = Math.floor((f % hour) / minute)
+// // let secs = Math.floor((f % minute) / 1000)
+// // console.log(hours)
+// // console.log(minutes)
+// // console.log(secs)
 

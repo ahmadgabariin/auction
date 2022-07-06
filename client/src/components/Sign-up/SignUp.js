@@ -11,8 +11,13 @@ function SignUp() {
   
   const  signUp = async () => {
     if (validator.isEmail(values[`email`].trim())) {
-      const user = await axios.post(`http://localhost:${port}/user` , values)
-      console.log(user.data)
+      try {
+        const user = await axios.post(`http://localhost:${port}/user` , values)
+        console.log(user.data)
+        
+      } catch (error) {
+        console.log(error);
+      }
     }
   } 
 
