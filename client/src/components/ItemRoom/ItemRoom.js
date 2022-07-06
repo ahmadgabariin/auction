@@ -9,13 +9,7 @@ import socket from '../../socketManager/socketManager';
 
 function ItemRoom() {
 
-  const [timer, setTimer] = useState(() => {
-    return {
-      hr: "00",
-      min: "00",
-      sec: "00"
-    }
-  })
+  const [timer, setTimer] = useState(() => calculateTimer())
   const [item, setItem] = useState(useLocation().state.item)
 
   function calculateTimer() {
@@ -31,13 +25,15 @@ function ItemRoom() {
       hours = hours < 10 ? "0" + hours : "" + hours
       minutes = minutes < 10 ? "0" + minutes : "" + minutes
       secs = secs < 10 ? "0" + secs : "" + secs
-      setTimer({ hr: hours, min: minutes, sec: secs })
+      return {
+        hr: hours, min: minutes, sec: secs
+      } 
   }
 
   useEffect(() => {
     socket.joinRoom(item.id)
     const myTimer = setInterval(() => {
-      calculateTimer()
+      setTimer(calculateTimer)
     }, 1000);
 
     return () => {

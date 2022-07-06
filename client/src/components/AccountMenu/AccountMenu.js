@@ -12,7 +12,7 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import Stack from '@mui/material/Stack'
-import { deepOrange, deepPurple  } from '@mui/material/colors';
+import { deepOrange, deepPurple } from '@mui/material/colors';
 
 const myProfile = () => console.log(`Profile`)
 const settings = () => console.log(`Settings`)
@@ -31,16 +31,16 @@ export default function AccountMenu() {
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Account settings">
-        <Stack direction="row" spacing={2} className = {`profile-pic`} 
-         onClick={handleClick}
-         size="small"
-         sx={{ ml: 2 }}
-         aria-controls={open ? 'account-menu' : undefined}
-         aria-haspopup="true"
-         aria-expanded={open ? 'true' : undefined}
-        >
-          <Avatar sx={{ bgcolor: deepOrange[600] }}>AG</Avatar>
-        </Stack>
+          <Stack direction="row" spacing={2} className={`profile-pic`}
+            onClick={handleClick}
+            size="small"
+            sx={{ ml: 2 }}
+            aria-controls={open ? 'account-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+          >
+            <Avatar sx={{ bgcolor: deepOrange[600] }}>AG</Avatar>
+          </Stack>
 
         </Tooltip>
       </Box>
