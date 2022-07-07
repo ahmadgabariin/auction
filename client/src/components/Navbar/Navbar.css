@@ -17,7 +17,6 @@ a {
     align-items: center;
     padding-left: 2vh;
     padding-right: 2vh;
-    width:10%;
     justify-content: center;
 }
 
@@ -33,4 +32,8 @@ a:hover {
 }
 .profile-pic{
   cursor: pointer;
+}
+
+.nav-bar-home ,.nav-bar-home {
+    width: 10%;
 }

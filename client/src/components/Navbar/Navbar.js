@@ -18,8 +18,8 @@ function Navbar() {
 
   return (
     <div className='nav-bar'>
-      <Link to={`/`} >Home</Link>
-      <Link to={`/additem`} >Add Item</Link>
+      <Link to={`/`}  className = {`nav-bar-home`}>Home</Link>
+      <Link to={`/additem`} className = {`nav-bar-home`} >Add Item</Link>
       <div className='profile-pic-container'>
         <AccountMenu/> 
       </div>
