@@ -29,7 +29,7 @@ router.put(`/item`, function (request, response) {
 
 router.post(`/item`, function (request, response) {
   const item = request.body;
-  item.dateOfExpire = new Date(moment().add(1, 'days').format('lll'))
+  item.dateOfExpire = moment().add(1, 'days').format('lll')
 
   const newItem = new Item(item);
   newItem

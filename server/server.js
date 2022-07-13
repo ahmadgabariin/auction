@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 
 
 app.use(`/`, api);
-// app.use(verifyJWT)
+//app.use(verifyJWT)
 app.use(`/`, itemApi);
 app.use(`/`, UserAPI);
 
@@ -58,8 +58,6 @@ io.on("connection", (socket) =>{
        console.log("user disconnected" + socket.id);
     })
 })
-
-
 
 server.listen(port , function () {
     console.log(`Server running on port ${port}`)

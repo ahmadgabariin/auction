@@ -1,27 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect,useState } from "react";
 import "./ItemRoom.css";
 import Button from "@mui/material/Button";
 import AlarmIcon from "@mui/icons-material/Alarm";
-import TextField from "@mui/material/TextField";
+import TextField from "@mui/material/TextField"; 
 import { useLocation } from 'react-router-dom';
 import socket from '../../socketManager/socketManager';
 import axios from "axios";
-import { inject } from 'mobx-react';
+import {calculateTimer} from '../../Timer/Timer';
+import { inject} from 'mobx-react';
 
 
 
 function ItemRoom(props) {
-  const [timer, setTimer] = useState(() => calculateTimer())
   const [item, setItem] = useState(useLocation().state)
+  const [timer, setTimer] = useState(() => calculateTimer( new Date(item.dateOfExpire).getTime()-new Date().getTime()))
   const [bidInput, setBidInput] = useState("")
   const [bid, setBid] = useState(0)
-
+  
   useEffect(() => {
-
     socket.joinRoom(item.id)
     const myTimer = setInterval(() => {
-      setTimer(calculateTimer)
-
+      setTimer(calculateTimer(new Date(item.dateOfExpire).getTime()-new Date().getTime()))
     }, 1000);
 
     return () => {
@@ -30,23 +29,24 @@ function ItemRoom(props) {
 
   }, [])
 
-  function calculateTimer() {
-    let dateOfExpire = new Date("Jul 7, 2022 7:30 PM").getTime()
-    let now = new Date().getTime()
-    let minute = 1000 * 60
-    let hour = minute * 60
-    let day = hour * 24
-    let gap = dateOfExpire - now
-    let hours = Math.floor((gap % day) / hour)
-    let minutes = Math.floor((gap % hour) / minute)
-    let secs = Math.floor((gap % minute) / 1000)
-    hours = hours < 10 ? "0" + hours : "" + hours
-    minutes = minutes < 10 ? "0" + minutes : "" + minutes
-    secs = secs < 10 ? "0" + secs : "" + secs
-    return {
-      hr: hours, min: minutes, sec: secs
-    }
-  }
+  // function calculateTimer() {
+  //   let dateOfExpire = new Date("Jul 14, 2022 5:28 PM").getTime()
+  //   let now = new Date().getTime()
+  //   let minute = 1000 * 60
+  //   let hour = minute * 60
+  //   let day = hour * 24
+  //   let gap = dateOfExpire - now
+  //   console.log(gap);
+  //   let hours = Math.floor((gap % day) / hour)
+  //   let minutes = Math.floor((gap % hour) / minute)
+  //   let secs = Math.floor((gap % minute) / 1000)
+  //   hours = hours < 10 ? "0" + hours : "" + hours
+  //   minutes = minutes < 10 ? "0" + minutes : "" + minutes
+  //   secs = secs < 10 ? "0" + secs : "" + secs
+  //   return {
+  //     hr: hours, min: minutes, sec: secs
+  //   }
+  // }
 
   function bidHandler(e) {
     setBidInput(e.target.value)
@@ -71,7 +71,7 @@ function ItemRoom(props) {
         .catch(error => console.log(error))
     }
   }
-
+  
   return (
     <div className="room">
       <div className="item-details">
