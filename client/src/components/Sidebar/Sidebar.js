@@ -1,10 +1,18 @@
 import React from "react";
 import "./Sidebar.css";
+import { inject } from 'mobx-react';
+
 function Sidebar(props) {
+
+  const setCategory=(e)=>{
+    
+     props.ItemsStore.setcategory(e.target.textContent);
+  }
   return (
     <div className="side-bar">
-      {props.catagories.map((category , index) => (
-        <div key={index} className = {`category`} >
+
+      {props.catagories.map((category, index) => (
+        <div key={index} className={`category`} onClick={setCategory} >
           {category}
         </div>
       ))}
@@ -12,4 +20,4 @@ function Sidebar(props) {
   );
 }
 
-export default Sidebar;
+export default  inject("ItemsStore")(Sidebar);

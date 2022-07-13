@@ -8,7 +8,8 @@ const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 const mongoose = require(`mongoose`)
-const moment = require("moment")
+const cookieParser = require("cookie-parser")
+const verifyJWT = require("./server/middleware/verifyJWT")
 mongoose.connect(`mongodb://localhost/Auction`, { useNewUrlParser: true });
 
 app.use(function (req, res, next) {
@@ -24,6 +25,7 @@ app.use(function (req, res, next) {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser())
 
 const server = http.createServer(app);
 
@@ -41,11 +43,12 @@ app.use((req, res, next) => {
 
 
 app.use(`/`, api);
+// app.use(verifyJWT)
 app.use(`/`, itemApi);
 app.use(`/`, UserAPI);
 
 io.on("connection", (socket) =>{
-
+    console.log(socket.id);
     socket.on("join-room", room =>{
       socket.join(room)
       console.log(room);
@@ -61,8 +64,3 @@ io.on("connection", (socket) =>{
 server.listen(port , function () {
     console.log(`Server running on port ${port}`)
 })
-
-
-
-
-

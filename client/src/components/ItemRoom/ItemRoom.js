@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ItemRoom.css";
 import Button from "@mui/material/Button";
 import AlarmIcon from "@mui/icons-material/Alarm";
@@ -6,18 +6,23 @@ import TextField from "@mui/material/TextField";
 import { useLocation } from 'react-router-dom';
 import socket from '../../socketManager/socketManager';
 import axios from "axios";
+import { inject } from 'mobx-react';
 
 
-function ItemRoom() {
 
+function ItemRoom(props) {
   const [timer, setTimer] = useState(() => calculateTimer())
-  const [item, setItem] = useState(useLocation().state.item)
-  const [bid, setBid] = useState("")
-
+  const [item, setItem] = useState(useLocation().state)
+  const [bidInput, setBidInput] = useState("")
+  const [bid, setBid] = useState(0)
+  
+console.log(item)
   useEffect(() => {
+    
     socket.joinRoom(item.id)
     const myTimer = setInterval(() => {
       setTimer(calculateTimer)
+
     }, 1000);
 
     return () => {
@@ -25,22 +30,6 @@ function ItemRoom() {
     }
 
   }, [])
-
-  function bidHandler(e) {
-    setBid(e.target.value)
-  }
-
-  socket.socket.on("buy", room =>{
-    console.log(room);
-  })
-
-  function addBid() {
-    axios.get(`http://localhost:4000/test`)
-      .then(data => {
-        console.log(data)
-      })
-      .catch(error => console.log(error))
-  }
 
   function calculateTimer() {
     let dateOfExpire = new Date("Jul 7, 2022 7:30 PM").getTime()
@@ -60,15 +49,38 @@ function ItemRoom() {
     }
   }
 
-  return (
+  function bidHandler(e) {
+    setBidInput(e.target.value)
+  }
 
+  socket.socket.on("biding", biddata => {
+    setBid(biddata)
+  })
+
+  function addBid() {
+    if (bidInput.trim() !== "") {
+
+      axios.post(`http://localhost:4000/bid`,
+        {
+          bidValue: parseInt(bidInput),
+          itemRoom: item.id
+        }
+      )
+        .then(data => {
+          console.log(data)
+        })
+        .catch(error => console.log(error))
+    }
+  }
+  
+  return (
     <div className="room">
       <div className="item-details">
-        <div className="item-title">{item.itemTitle}</div>
+        <div className="item-title">{item.title}</div>
         <div>Time Left: {timer.hr}:{timer.min}:{timer.sec}</div>
-        <img src={item.itemImg} alt="" />
-        <p>{item.itemDescription}</p>
-        <div>Current bid : {item.itemPrice}</div>
+        <img src={item.imageURL} alt="" />
+        <p>{item.description}</p>
+        <div>Current bid : {item.price}</div>
         <div className="btn-input-bid-container">
           <TextField
             id="outlined-basic"
@@ -79,7 +91,7 @@ function ItemRoom() {
             name="bidingInput"
             onChange={bidHandler}
             className="bid-input"
-            value={bid}
+            value={bidInput}
           />
           <Button
             variant="contained"
@@ -97,12 +109,12 @@ function ItemRoom() {
       <div className="side-bar-padding-history">
         <div className="bidder-history">
           <span>khaledwani: </span>
-          <span>$10</span>
+          <span>${bid}</span>
         </div>
       </div>
-    </div>
+   </div>
   );
 }
 
 
-export default ItemRoom;
+export default inject("ItemsStore")(ItemRoom)

@@ -11,7 +11,7 @@ const itemSchema = new Schema({
   dateOfExpire: Date,
   isApproved: Boolean,
   description: String,
-  Users: [{ type: Schema.Types.ObjectId, ref: `User` }],
+ // Users: [{ type: Schema.Types.ObjectId, ref: `User` }],
   bids: [{
     type: Schema.Types.ObjectId, ref: `User`,
     bidAmount: {

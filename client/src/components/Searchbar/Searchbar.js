@@ -1,13 +1,20 @@
 import React from 'react'
 import './Searchbar.css'
 import TextField from '@mui/material/TextField';
-import {inject, observer } from 'mobx-react';
+import {inject} from 'mobx-react';
 
 function  Searchbar (props){
 
-  function search (e){
+  function search(e) {
+    const searchedValue = e.target.value;
     
+    const filteredItems = props.ItemsStore.items.filter((item) =>
+      item.title.toLowerCase().includes(searchedValue.toLowerCase())
+    );
+     
+    props.ItemsStore.items=filteredItems
   }
+
   
   return (
     <div className='search-bar'>
@@ -21,4 +28,4 @@ function  Searchbar (props){
 
 
 
-export default Searchbar
+export default inject("ItemsStore")(Searchbar)
