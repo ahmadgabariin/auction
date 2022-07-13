@@ -10,10 +10,13 @@ function AddItem() {
   const [imageUpload, setImageUpload] = useState(null)
   const [inputsValues, setInputsValues] = useState({ title: ``, description: ``, category: `` })
   const handleChanges = (e) => {
-    setInputsValues({ ...inputsValues, [e.target.name]: e.target.value })
-  };
-
-
+    if (e.target.value != -1)
+    {
+      setInputsValues({ ...inputsValues, [e.target.name]: e.target.value })
+    }
+    
+  }
+  
   const uploadItem = () => {
     let flag = true
     Object.values(inputsValues).forEach(text => {
@@ -33,7 +36,6 @@ function AddItem() {
                 .then(data => {
                   console.log(data)
                   setInputsValues({ title: ``, description: ``, category: `` })
-                  setImageUpload(null)
                   alert(`Item saved successfully`)
 
                 })
@@ -62,8 +64,14 @@ function AddItem() {
           <select id="select-input" name="category" onChange={handleChanges} className={`input-add-item`}
             value={inputsValues[`category`]}
           >
+<<<<<<< HEAD
             {catagories.map((c, index) => (
               <option key={index} value={c}>
+=======
+            <option value= {-1}>{`Select Item`}</option>
+            {catagories.map((c,index) => (
+             <option key={index} value={c}>
+>>>>>>> bb673fcb744ff37f65ea4648580b1bbac7735113
                 {c}
               </option>
             ))}
@@ -92,4 +100,7 @@ function AddItem() {
 
 export default AddItem
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bb673fcb744ff37f65ea4648580b1bbac7735113
