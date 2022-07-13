@@ -78,52 +78,66 @@ function ItemRoom(props) {
 
   return (
     <div className="room">
-      <div className="item-details">
-        <div className="item-title">{item.title}</div>
-        <div>
-          Time Left: {timer.hr}:{timer.min}:{timer.sec}
-        </div>
-        <ToastContainer
-          position="top-center"
-          autoClose={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-        />
-        <img src={item.imageURL} alt="" />
-        <p>{item.description}</p>
-        <div>Current bid : {item.price}</div>
-        <div className="btn-input-bid-container">
-          <TextField
-            id="outlined-basic"
-            label="Biding..."
-            variant="outlined"
-            size="small"
-            type="number"
-            name="bidingInput"
-            onChange={bidHandler}
-            className="bid-input"
-            value={bidInput}
+      <div className="item-details-container">
+        <div className="item-details">
+          <div className="item-title font-effect-outline">{item.title}</div>
+          <div className="timer">
+            Time Left:{" "}
+            <span className="timer-time">
+              {timer.hr}:{timer.min}:{timer.sec}
+            </span>
+          </div>
+          <img src={item.imageURL} alt="" className="image-item-room" />
+          <p>{item.description}</p>
+          <div>Current bid : {item.price}</div>
+          <ToastContainer
+            position="top-center"
+            autoClose={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
           />
-          <Button
-            variant="contained"
-            color="success"
-            className="btn-bid"
-            size="small"
-            onClick={addBid}
-          >
-            <AlarmIcon />
-            Bid
-          </Button>
+
+          <div className="btn-input-bid-container">
+            <TextField
+              id="outlined-basic"
+              label="Biding..."
+              variant="outlined"
+              size="small"
+              type="number"
+              name="bidingInput"
+              onChange={bidHandler}
+              className="bid-input"
+              value={bidInput}
+            />
+            <Button
+              variant="contained"
+              color="success"
+              className="btn-bid"
+              size="small"
+              onClick={addBid}
+            >
+              <AlarmIcon />
+              Bid
+            </Button>
+          </div>
         </div>
       </div>
 
       <div className="side-bar-padding-history">
-        <div className="bidder-history">
-          <span>khaledwani: </span>
-          <span>${bid}</span>
+        <div className="bids-title">Bids</div>
+        <div className="line-white"></div>
+        <div className="bids-history">
+          <div className="bidder-history">
+            <span className="bidder-name">khaledwani: </span>
+            <span className="bidder-value">${bid}</span>
+          </div>
+          <div className="bidder-history">
+            <span className="bidder-name">ahmad gabarin: </span>
+            <span className="bidder-value">${bid}</span>
+          </div>
         </div>
       </div>
     </div>
