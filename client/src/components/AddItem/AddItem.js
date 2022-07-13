@@ -64,14 +64,9 @@ function AddItem() {
           <select id="select-input" name="category" onChange={handleChanges} className={`input-add-item`}
             value={inputsValues[`category`]}
           >
-<<<<<<< HEAD
-            {catagories.map((c, index) => (
-              <option key={index} value={c}>
-=======
             <option value= {-1}>{`Select Item`}</option>
             {catagories.map((c,index) => (
              <option key={index} value={c}>
->>>>>>> bb673fcb744ff37f65ea4648580b1bbac7735113
                 {c}
               </option>
             ))}
@@ -100,7 +95,3 @@ function AddItem() {
 
 export default AddItem
 
-<<<<<<< HEAD
-
-=======
->>>>>>> bb673fcb744ff37f65ea4648580b1bbac7735113
