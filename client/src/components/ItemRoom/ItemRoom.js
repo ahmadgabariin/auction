@@ -122,7 +122,7 @@ function ItemRoom(props) {
           </div>
         </div>
       </div>
-    </div>
+   </div>
   );
 }
 

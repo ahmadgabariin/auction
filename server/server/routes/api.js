@@ -1,42 +1,29 @@
-const express = require(`express`);
-const router = express.Router();
+const express = require(`express`)
+const router = express.Router()
 const jwt = require(`jsonwebtoken`);
 require("dotenv").config();
 const bcrypt = require(`bcrypt`);
 const User = require(`../models/User`);
-const { body, validationResult } = require("express-validator");
 
 router.get(`/categories`, function (request, response) {
-  response.send(`get categories`);
-});
+    response.send(`get categories`)
+})
 
-router.post(
-  `/signup`,
-  body("firstName").isAlpha(),
-  body("lastName").isAlpha(),
-  body("email").isEmail(),
-  async function (request, response) {
-    const errors = validationResult(request);
-    if (errors.isEmpty()) {
-      try {
+router.post(`/signup`, async function (request, response) {
+    try {
         let user = request.body;
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(user.password, salt);
         user.password = hashedPassword;
         const newUser = new User(user);
         newUser.save(function (error, u) {
-          if (error) {
-            return response
-              .status(400)
-              .send({ code: "bad requset", err: error });
-          }
-          response.status(201).send({ message: " new user has been added" });
+            if (error) {
+                return response.status(400).send({ code: "bad requset", err: error });
+            }
+            response.status(201).send({ message: " new user has been added" });
         });
-      } catch {
+    } catch {
         response.status(500).send(`error`);
-      }
-    } else {
-      response.status(400).send(errors);
     }
   }
 );
