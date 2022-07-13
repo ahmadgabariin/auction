@@ -7,10 +7,7 @@ export class ItemsStore {
     
         makeAutoObservable(this, {
             bids: observable,
+            
         })
-    }
-
-    setcategory=(category="")=>{
-       this.category=category
     }
 }

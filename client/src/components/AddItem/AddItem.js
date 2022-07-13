@@ -12,8 +12,8 @@ function AddItem() {
   const handleChanges = (e) => {
     setInputsValues({ ...inputsValues, [e.target.name]: e.target.value })
   };
-  
-  
+
+
   const uploadItem = () => {
     let flag = true
     Object.values(inputsValues).forEach(text => {
@@ -62,8 +62,8 @@ function AddItem() {
           <select id="select-input" name="category" onChange={handleChanges} className={`input-add-item`}
             value={inputsValues[`category`]}
           >
-            {catagories.map((c,index) => (
-             <option key={index} value={c}>
+            {catagories.map((c, index) => (
+              <option key={index} value={c}>
                 {c}
               </option>
             ))}
@@ -92,11 +92,4 @@ function AddItem() {
 
 export default AddItem
 
-// title:String
-//   category:String
-//   image:String //firebase link
-//   price:Number
-//   available:Boolean
-//   dateOfApprove:Date
-//   isApproved:Boolean
-//   description:String
+

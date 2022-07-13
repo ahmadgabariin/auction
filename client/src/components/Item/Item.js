@@ -3,8 +3,6 @@ import { Link} from "react-router-dom";
 import './Item.css'
 function Item(props) {
   const item=JSON.parse(JSON.stringify(props.item));
-  console.log(item)
-
   return ( 
         <Link className="item" to="/biding-room" state={item}>
             <div className="item-title">{props.item.title}</div>

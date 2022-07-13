@@ -15,10 +15,9 @@ function ItemRoom(props) {
   const [item, setItem] = useState(useLocation().state)
   const [bidInput, setBidInput] = useState("")
   const [bid, setBid] = useState(0)
-  
-console.log(item)
+
   useEffect(() => {
-    
+
     socket.joinRoom(item.id)
     const myTimer = setInterval(() => {
       setTimer(calculateTimer)
@@ -72,7 +71,7 @@ console.log(item)
         .catch(error => console.log(error))
     }
   }
-  
+
   return (
     <div className="room">
       <div className="item-details">
@@ -112,7 +111,7 @@ console.log(item)
           <span>${bid}</span>
         </div>
       </div>
-   </div>
+    </div>
   );
 }
 

@@ -6,7 +6,6 @@ const data = require("../../data.json");
 
 router.get(`/items`, function (request, response) {
   let categoryName = request.query.category;
-  console.log(categoryName);
   let filter = categoryName ? { category: categoryName } : {}
   Item.find(filter).sort({ dateOfExpire: 1 }).exec(function (err, items) {
     if (err) {

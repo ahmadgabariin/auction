@@ -12,10 +12,6 @@ const userSchema = new Schema ({
     },
     phoneNumber : String,
     birthDay : Date,
-    roles:{
-       user:Number,
-       admin:Number
-    },
     Items : [{type : Schema.Types.ObjectId , ref: `Item`}],
     historyItem : [{type : Schema.Types.ObjectId , ref: `Item`}]
   })
