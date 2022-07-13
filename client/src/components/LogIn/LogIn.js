@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./LogIn.css";
 import { useCookies } from "react-cookie";
@@ -11,6 +11,7 @@ function LogIn(props) {
   const [logInStatus, setLogInStatus] = useState(null);
   const navigate = useNavigate();
 
+  
   const LogInHandler = () => {
     axios
       .post(`http://localhost:4000/login`, {
@@ -24,6 +25,9 @@ function LogIn(props) {
         }
       });
   };
+
+
+
 
   return (
     <div className="login-container">

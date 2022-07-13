@@ -12,13 +12,15 @@ function MainPage() {
 
   const [cookies, setCookie] = useCookies([]);
   const userAuthenticated = () => {
-    axios
-      .get("http://localhost:3001/isAuth", {
-        headers: {
-          "x-access-token": localStorage.getItem("token"),
-        },
-      })
-      .then((response) => {});
+    console.log(cookies.tokenCookie);
+    // axios
+    //   .get("http://localhost:3001/isAuth", {
+    //     headers: {
+    //       "x-access-token": cookies.tokenCookie,
+    //     },
+        
+    //   }, )
+    //   .then((response) => {});
   };
 
   return (
