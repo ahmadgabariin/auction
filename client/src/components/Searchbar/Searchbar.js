@@ -1,16 +1,31 @@
 import React, { useState } from 'react'
 import './Searchbar.css'
 import TextField from '@mui/material/TextField';
-function Searchbar() {
-  const [searchValue , setSearchValue] = useState(``)
+import {inject} from 'mobx-react';
+
+function  Searchbar (props){
+
+  function search(e) {
+    const searchedValue = e.target.value;
+    
+    const filteredItems = props.ItemsStore.items.filter((item) =>
+      item.title.toLowerCase().includes(searchedValue.toLowerCase())
+    );
+     
+    props.ItemsStore.items=filteredItems
+  }
+
+  
   return (
     <div className='search-bar'>
       <TextField id="standard-basic" label="Search" 
-         variant="standard" name='searchInput'
-          onChange={(event) => setSearchValue(event.target.value)} 
-          value = {searchValue}  size='small' />
+         variant="standard" name='searchInput' onChange={search} size='small'/>
     </div>
   )
 }
 
-export default Searchbar
+  
+
+
+
+export default inject("ItemsStore")(Searchbar)

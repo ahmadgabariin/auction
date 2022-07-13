@@ -6,9 +6,16 @@ const userSchema = new Schema ({
     password : String,
     firstName : String,
     lastName : String,
-    email : String,
+    email : {
+      type: String,
+      unique: true
+    },
     phoneNumber : String,
     birthDay : Date,
+    roles:{
+       user:Number,
+       admin:Number
+    },
     Items : [{type : Schema.Types.ObjectId , ref: `Item`}],
     historyItem : [{type : Schema.Types.ObjectId , ref: `Item`}]
   })

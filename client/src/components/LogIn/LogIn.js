@@ -1,33 +1,28 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import {useNavigate,useLocation } from "react-router-dom";
+import { observer, inject } from 'mobx-react'
 import "./LogIn.css";
-import { useCookies } from "react-cookie";
-
 function LogIn(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [cookies, setCookie] = useCookies([]);
-  const [logInStatus, setLogInStatus] = useState(null);
   const navigate = useNavigate();
-
-  
+  const location =useLocation();
+  const from = location.state?.from?.pathname || "/mainPage"
   const LogInHandler = () => {
     axios
       .post(`http://localhost:4000/login`, {
         username: username,
         password: password,
       })
-      .then((response) => {
-        if (response.data.auth) {
-          setCookie("tokenCookie", response.data.token, { path: "/" });
-          setLogInStatus(true);
-        }
+      .then((response) => { 
+        console.log(response.data);
+          props.AuthStore.setLogInStatus(response.data.auth,response.data.user);
+         
+          if(props.AuthStore.auth) {navigate(from,{replace:true})} 
+           
       });
   };
-
-
-
 
   return (
     <div className="login-container">
@@ -57,12 +52,10 @@ function LogIn(props) {
             </div>
           </div>
         </div>
-        <div>
-          {logInStatus ? <Navigate to="/mainPage" replace={true} /> : null}
-        </div>
+        
       </div>
     </div>
   );
 }
 
-export default LogIn;
+export default inject("AuthStore")(observer(LogIn));

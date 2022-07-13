@@ -1,35 +1,50 @@
 [
-
     {
-        "itemTitle":"Galaxy S22",
-        "itemImg":"https://www.electrorates.com/blogimg/Samsung_Galaxy_S22_Ultra_1.webp",
-        "itemPrice":100,
+        "id": 1,
+        "itemTitle": "Iphone",
+        "itemImg": "https://www.electrorates.com/blogimg/Samsung_Galaxy_S22_Ultra_1.webp",
+        "itemPrice": 50,
         "itemTimer": 50,
-        "itemDescription":"a very good phone for u to buy and take selfies"   
+        "itemDescription": "a very good phone for u to buy and take selfies"
     },
-    
     {
-        "itemTitle":"Iphone 12 pro max",
-        "itemImg":"https://th.bing.com/th/id/OIP.zsnh-vpZWVVjb-LeGECs1AHaHa?pid=ImgDet&rs=1",
-        "itemPrice":200,
-        "itemTimer": 40,
-        "itemDescription":"a very good phone for u to buy and take selfies"   
-    },
-    
-    {
-        "itemTitle":"Xiaomi redmi note 11 pro",
-        "itemImg":"https://th.bing.com/th/id/OIP.z2Q8B01pBZYyUbzI47Q0JQHaJ_?pid=ImgDet&rs=1",
-        "itemPrice":80,
-        "itemTimer": 30,
-        "itemDescription":"a very good phone for u to buy and take selfies"   
-    },
-    
-    {
-        "itemTitle":"Samsung note 20 ultra",
-        "itemImg":"https://th.bing.com/th/id/R.5e986ad7b183d07b74ee49bf7ff2771c?rik=5S%2bFSRTFzQKQ3Q&pid=ImgRaw&r=0&sres=1&sresct=1",
-        "itemPrice":150,
+        "id": 2,
+        "itemTitle": "phone",
+        "itemImg": "https://www.electrorates.com/blogimg/Samsung_Galaxy_S22_Ultra_1.webp",
+        "itemPrice": 50,
         "itemTimer": 50,
-        "itemDescription":"a very good phone for u to buy and take selfies"   
+        "itemDescription": "a very good phone for u to buy and take selfies"
+    },
+    {
+        "id": 3,
+        "itemTitle": "phone",
+        "itemImg": "https://www.electrorates.com/blogimg/Samsung_Galaxy_S22_Ultra_1.webp",
+        "itemPrice": 50,
+        "itemTimer": 50,
+        "itemDescription": "a very good phone for u to buy and take selfies"
+    },
+    {
+        "id": 4,
+        "itemTitle": "phone",
+        "itemImg": "https://www.electrorates.com/blogimg/Samsung_Galaxy_S22_Ultra_1.webp",
+        "itemPrice": 50,
+        "itemTimer": 50,
+        "itemDescription": "a very good phone for u to buy and take selfies"
+    },
+    {
+        "id": 5,
+        "itemTitle": "phone",
+        "itemImg": "https://www.electrorates.com/blogimg/Samsung_Galaxy_S22_Ultra_1.webp",
+        "itemPrice": 50,
+        "itemTimer": 50,
+        "itemDescription": "a very good phone for u to buy and take selfies"
+    },
+    {
+        "id": 6,
+        "itemTitle": "phone",
+        "itemImg": "https://www.electrorates.com/blogimg/Samsung_Galaxy_S22_Ultra_1.webp",
+        "itemPrice": 50,
+        "itemTimer": 50,
+        "itemDescription": "a very good phone for u to buy and take selfies"
     }
-    
 ]
