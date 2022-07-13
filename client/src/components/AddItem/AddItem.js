@@ -10,6 +10,14 @@ function AddItem() {
   const [imageUpload, setImageUpload] = useState(null)
   const [inputsValues, setInputsValues] = useState({ title: ``, description: ``, category: `` })
   const handleChanges = (e) => {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    setInputsValues({ ...inputsValues, [e.target.name]: e.target.value });
+  };
+
+=======
+>>>>>>> parent of 814099a (fixed some conflicts)
     if (e.target.value != -1)
     {
       setInputsValues({ ...inputsValues, [e.target.name]: e.target.value })
@@ -17,6 +25,10 @@ function AddItem() {
     
   }
   
+<<<<<<< HEAD
+=======
+>>>>>>> bb673fcb744ff37f65ea4648580b1bbac7735113
+>>>>>>> parent of 814099a (fixed some conflicts)
   const uploadItem = () => {
     let flag = true
     Object.values(inputsValues).forEach(text => {
@@ -30,6 +42,24 @@ function AddItem() {
       uploadBytes(imageRef, imageUpload)
         .then(() => {
           getDownloadURL(imageRef)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            .then((url) => {
+              const item = { ...inputsValues, imageURL: url };
+              axios
+                .post(`http://localhost:4000/item`, item)
+                .then((data) => {
+                  setInputsValues({
+                    title: ``,
+                    description: ``,
+                    category: ``,
+                    price: 0,
+                  });
+                  setImageUpload(null);
+                  toast.success("Item saved successfully");
+=======
+>>>>>>> parent of 814099a (fixed some conflicts)
             .then(url => {
               const item = { ...inputsValues, imageURL: url }
               axios.post(`http://localhost:4000/item`, item)
@@ -38,6 +68,10 @@ function AddItem() {
                   setInputsValues({ title: ``, description: ``, category: `` })
                   alert(`Item saved successfully`)
 
+<<<<<<< HEAD
+=======
+>>>>>>> bb673fcb744ff37f65ea4648580b1bbac7735113
+>>>>>>> parent of 814099a (fixed some conflicts)
                 })
                 .catch(error => console.log(error))
             })
@@ -64,9 +98,20 @@ function AddItem() {
           <select id="select-input" name="category" onChange={handleChanges} className={`input-add-item`}
             value={inputsValues[`category`]}
           >
+
             <option value= {-1}>{`Select Item`}</option>
             {catagories.map((c,index) => (
              <option key={index} value={c}>
+=======
+<<<<<<< HEAD
+            {catagories.map((c, index) => (
+              <option key={index} value={c}>
+=======
+            <option value= {-1}>{`Select Item`}</option>
+            {catagories.map((c,index) => (
+             <option key={index} value={c}>
+>>>>>>> bb673fcb744ff37f65ea4648580b1bbac7735113
+>>>>>>> parent of 814099a (fixed some conflicts)
                 {c}
               </option>
             ))}
@@ -93,5 +138,9 @@ function AddItem() {
   );
 }
 
+<<<<<<< HEAD
 export default AddItem
+=======
+export default AddItem;
+>>>>>>> parent of 814099a (fixed some conflicts)
 
