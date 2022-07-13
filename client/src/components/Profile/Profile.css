@@ -1,0 +1,18 @@
+.profile-image {
+    display: flex;  
+    justify-content: center;
+    margin-top: 5vh;
+}
+
+.first-last-name-profile {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+    font-size: x-large;
+}
+
+.black-line {
+    height: 2px;
+    background-color:#30383f ;
+    margin-top: 3vh;
+}

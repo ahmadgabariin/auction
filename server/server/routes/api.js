@@ -12,13 +12,10 @@ router.get(`/categories`, function (request, response) {
 router.post(`/signup`, async function (request, response) {
     try {
         let user = request.body;
-        user.roles = {
-            "user": process.env.USER_ROLE,
-        }
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(user.password, salt);
         user.password = hashedPassword;
-        console.log(user);
+
         const newUser = new User(user);
         newUser.save(function (error, u) {
             if (error) {
@@ -51,9 +48,9 @@ router.post(`/login`, async function (request, response) {
                 }
 
                 if (await bcrypt.compare(password, user.password)) {
-                    const roles = Object.values(user.roles)
+                    
                     const token = jwt.sign(
-                        { "userInfo": { username, roles } },
+                        {username},
                         process.env.SECRET_KEY,
                         { expiresIn: '60s', }
                     );

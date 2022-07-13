@@ -6,7 +6,7 @@ function Item(props) {
   return ( 
         <Link className="item" to="/biding-room" state={item}>
             <div className="item-title">{props.item.title}</div>
-            <img src={props.item.imageURL} alt='' />
+            <img src={props.item.imageURL} alt='' className="image-item" />
             <div>Time Left :
               <span className="time-left-value"> less than 24h</span>
             </div>
