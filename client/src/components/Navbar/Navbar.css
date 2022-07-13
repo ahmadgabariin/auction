@@ -10,6 +10,9 @@
 
 a {
     text-decoration: none;
+}
+.title-navbar {
+    text-decoration: none;
     color: white;
     height: 100%;
     font-size: 1.5vw;
@@ -17,8 +20,8 @@ a {
     align-items: center;
     padding-left: 2vh;
     padding-right: 2vh;
-    width:10%;
     justify-content: center;
+    width: 10%;
 }
 
 a:hover {
