@@ -14,6 +14,7 @@ function ItemRoom(props) {
   const [timer, setTimer] = useState(() => calculateTimer());
   const [item, setItem] = useState(useLocation().state);
   const [bidInput, setBidInput] = useState("");
+
   const [bid, setBid] = useState(0);
 
   console.log(item);
