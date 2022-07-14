@@ -28,6 +28,20 @@ router.post(`/signup`, async function (request, response) {
     }
 });
 
+router.put (`/uploadImage` , function ( request, response ) {
+    const userID = request.body.id
+    const imageURL = request.body.imageURl
+    User.findById(userID , function (error , data) {
+        if (error) {
+            response.status(500).send(error)
+            response.end()
+        }
+        data.profileImageURL = imageURL
+        data.save()
+        response.send(data)
+    })
+    
+} )
 
 router.post(`/login`, async function (request, response) {
     const username = request.body.username;
@@ -51,7 +65,8 @@ router.post(`/login`, async function (request, response) {
                     
                     const token = jwt.sign(
                         {username},
-                        process.env.SECRET_KEY,
+                        //process.env.SECRET_KEY,
+                        `wdadw`,
                         { expiresIn: '60s', }
                     );
                     user.password=""
